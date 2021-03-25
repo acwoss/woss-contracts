@@ -1,5 +1,6 @@
 import pytest
 
+
 from woss.contracts import Contract
 
 
@@ -14,7 +15,7 @@ def test_empty_contract():
     assert issubclass(Spam, Duck)
     assert isinstance(Spam(), Duck)
 
-
+    
 def test_contract_must_be_abstract():
     """ Classe de contrato deve ser abstrata por definição """
     class Duck(metaclass=Contract):
