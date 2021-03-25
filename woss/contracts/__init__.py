@@ -5,6 +5,9 @@
 import inspect
 
 
+__version__ = '0.0.1'
+
+
 class Contract(type):
     """
 
@@ -12,8 +15,8 @@ class Contract(type):
 
     def __subclasscheck__(self, subclass) -> bool:
         return all(
-            self.has(subclass, *function) 
-                for function in inspect.getmembers(self, predicate=inspect.isfunction)
+            self.has(subclass, *func)
+            for func in inspect.getmembers(self, inspect.isfunction)
         )
 
     def __instancecheck__(self, instance) -> bool:
@@ -22,20 +25,20 @@ class Contract(type):
     def has(self, subclass, name, function) -> bool:
         if not hasattr(subclass, name):
             return False
-        return self.validate(function, getattr(subclass, name))    
+        return self.validate(function, getattr(subclass, name))
 
     @property
     def validators(self):
         yield from (
-            value for name, value 
-                in inspect.getmembers(inspect, predicate=inspect.isfunction)
-                if name.startswith('is')
+            value
+            for name, value in inspect.getmembers(inspect, inspect.isfunction)
+            if name.startswith('is')
         )
 
     def validate(self, expected, received) -> bool:
         if not all(
-            validator(expected) == validator(received) 
-                for validator in self.validators
+            validator(expected) == validator(received)
+            for validator in self.validators
         ):
             return False
 
