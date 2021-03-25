@@ -10,6 +10,9 @@ class Contract(type):
 
     """
 
+    def __call__(cls, *args, **kwargs):
+        raise TypeError(f"Can't instantiate contract class {cls.__name__}")
+
     def __subclasscheck__(self, subclass) -> bool:
         return all(
             self.has(subclass, *func)
