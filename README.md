@@ -4,6 +4,7 @@ Implementação de contratos em Python.
 
 [![Lint and Tests](https://github.com/acwoss/woss-contracts/actions/workflows/app.yml/badge.svg)](https://github.com/acwoss/woss-contracts/actions/workflows/app.yml)
 [![Publish on PyPI](https://github.com/acwoss/woss-contracts/actions/workflows/publish.yml/badge.svg)](https://github.com/acwoss/woss-contracts/actions/workflows/publish.yml)
+[![codecov](https://codecov.io/gh/acwoss/woss-contracts/branch/main/graph/badge.svg?token=UN1TBDG4T0)](https://codecov.io/gh/acwoss/woss-contracts)
 
 ## Instalação
 
