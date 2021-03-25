@@ -12,3 +12,23 @@ Ao utilizar o PIP para gerenciamento de pacotes, basta executar no terminal:
 ```
 $ pip install woss.contracts
 ``` 
+
+## Exemplo
+
+```python
+from woss.contracts import Contract
+
+
+class Duck(metaclass=Contract):
+    def quack(self):
+        pass
+
+
+class Spam:
+    def quack(self):
+        print('Quack!')
+
+
+issubclass(Spam, Duck)  # True
+isinstance(Spam(), Duck)  # True
+```
