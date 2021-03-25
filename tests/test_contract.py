@@ -22,4 +22,4 @@ def test_contract_must_be_abstract():
         pass
 
     with pytest.raises(TypeError):
-        duck = Duck()
+        Duck()
